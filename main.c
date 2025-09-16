@@ -1,17 +1,34 @@
-#include "color_code_test.h"
-#include "color_code_definitions.h"
+#include "color_code_test.h"        // Include the test functions
+#include "color_code_definitions.h" // Include the definitions
 #include <stdio.h>
 
-int main() {
-    printf("Color Code Manual:\n");
-    for (int i = 1; i <= numberOfMajorColors * numberOfMinorColors; ++i) {
-        ColorPair cp = GetColorFromPairNumber(i);
-        char buffer[50];
-        ColorPair_ToString(&cp, buffer);
-        printf("%d: %s\n", i, buffer);
-    }
-    printf("\n");
+// Define a type for our callback function
+typedef void (*PairNumberProcessor)(int pairNumber);
 
+void iterateColorPairNumbers(PairNumberProcessor processor) {
+    for (int i = 1; i <= numberOfMajorColors * numberOfMinorColors; ++i) {
+        processor(i);
+    }
+}
+
+void printColorPairEntryProcessor(int pairNumber) {
+    ColorPair cp = GetColorFromPairNumber(pairNumber);
+    char buffer[50];
+    ColorPair_ToString(&cp, buffer);
+    printf("%d: %s\n", pairNumber, buffer);
+}
+
+void printColorCodeManual() {
+    printf("Color Code Manual:\n");
+    iterateColorPairNumbers(printColorPairEntryProcessor);
+    printf("\n");
+}
+
+int main() {
+
+    printColorCodeManual();
+
+    // Run the tests
     testNumberToPair(4, WHITE, BROWN);
     testNumberToPair(5, WHITE, SLATE);
 

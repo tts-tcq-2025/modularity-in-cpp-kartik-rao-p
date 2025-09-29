@@ -1,5 +1,5 @@
-#include "color_code_test.h"
-#include "color_code_definitions.h" // Include the definitions
+#include "color_code_test.hpp"
+#include "color_code_definitions.hpp" // Include the definitions
 #include <stdio.h>
 #include <assert.h>
 

@@ -1,4 +1,4 @@
-#include "color_code_definitions.h"
+#include "color_code_definitions.hpp"
 #include <stdio.h>
 #include <string.h>
 

@@ -1,5 +1,5 @@
-#include "color_code_test.h"        // Include the test functions
-#include "color_code_definitions.h" // Include the definitions
+#include "color_code_test.hpp"        // Include the test functions
+#include "color_code_definitions.hpp" // Include the definitions
 #include <stdio.h>
 
 // Define a type for our callback function
